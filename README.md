@@ -1,14 +1,15 @@
 # KarpovichMagniseFintachart
 
-This is demo app using https://platform.fintacharts.com API for financial charts.
+This is a demo app using https://platform.fintacharts.com API for financial charts.
 Stack: Angular 18, Angular Material with theming, flex-layout, websocket, REST API, chart.js + luxon, ng-apexcharts (https://apexcharts.com/). Implemented during 4-5 oct 2024.
 
 ## Comments and nuances
 
-- Number of instruments (pairs) from "get list instruments" response was intentionally reduced x10, can be reverted in getPairs method.
+- The number of instruments (pairs) from "get list instruments" response was intentionally reduced x10, can be reverted in getPairs method.
 - I assigned few initial chart properties to hardcoded constants (DEFAULT_PAIRS) in order to show UI even when facing some network or auth problems.
-- For historical data I choosed periodicity= 1 day as a most illustrative
-- Sometimes live chart remains empty for sometime due to absence of new data (new messages from websocket). Change the pair in this case.
+- For historical data I choosed periodicity= 1 day as a most illustrative one
+- Sometimes live chart remains empty for a while due to the absence of new data (new messages from websocket). Change the pair in this case.
+- I didn't create usual separate folders and even html/css files for each component due to their small size
 
 ## Issues, todos
 
@@ -23,6 +24,10 @@ Run `npm i --legacy-peer-deps` (version conflicts, you know... sth wrong with @a
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+![11](https://github.com/user-attachments/assets/a6562517-a39d-46f2-b043-751a5e3d0f23)
+
+![22](https://github.com/user-attachments/assets/22f21c01-8f48-40dd-9347-f015a5226e71)
 
 
 
