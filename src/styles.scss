@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$orange-palette,
+  ),
+  typography: (
+    brand-family: 'Comic Sans',
+    bold-weight: 900
+  ),
+  density: (
+    scale: -1
+  )
+));
+
+html {
+  @include mat.core-theme($theme);
+}
+
+html, body { height: 100%; }
+body { 
+    margin: 0;
+    padding: 1rem;
+    color: ivory;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    align-content: center;
+ }
+
+.full-width {
+  width: 100%;
+}
+
+fieldset {
+  border-radius: 5px;
+}
+
+legend {
+  font-size: 1.2rem;
+}

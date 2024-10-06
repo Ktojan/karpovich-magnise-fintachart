@@ -1,27 +1,29 @@
 # KarpovichMagniseFintachart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+This is demo app using https://platform.fintacharts.com API for financial charts.
+Stack: Angular 18, Angular Material with theming, flex-layout, websocket, REST API, chart.js + luxon, ng-apexcharts (https://apexcharts.com/). Implemented during 4-5 oct 2024.
+
+## Comments and nuances
+
+- Number of instruments (pairs) from "get list instruments" response was intentionally reduced x10, can be reverted in getPairs method.
+- I assigned few initial chart properties to hardcoded constants (DEFAULT_PAIRS) in order to show UI even when facing some network or auth problems.
+- For historical data I choosed periodicity= 1 day as a most illustrative
+- Sometimes live chart remains empty for sometime due to absence of new data (new messages from websocket). Change the pair in this case.
+
+## Issues, todos
+
+The core blocking problem is that with initial get auth token request, see the comment in ./services/fintachart.service.ts:getAccessToken(). In order to get around this I implemented a prompt with token input (and button to reassign it)
+
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm i --legacy-peer-deps` (version conflicts, you know... sth wrong with @angular/flex-layout, needs time to clarify)
+ `ng serve` for a dev server. 
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
